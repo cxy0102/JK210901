@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dao\BaseDao.cs" />
+    <Compile Include="dao\impl\BaseDaoImpl.cs" />
     <Compile Include="helper\SqlServerHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestWebService.asmx.cs">
@@ -123,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="control\" />
-    <Folder Include="dao\impl\" />
     <Folder Include="model\" />
     <Folder Include="service\" />
     <Folder Include="util\" />
