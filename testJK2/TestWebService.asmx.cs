@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using testJK2.service;
 
 namespace testJK2
 {
@@ -13,7 +14,7 @@ namespace testJK2
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // 若要允许使用 ASP.NET AJAX 从脚本中调用此 Web 服务，请取消注释以下行。 
-    // [System.Web.Script.Services.ScriptService]
+     [System.Web.Script.Services.ScriptService]
     public class TestWebService : System.Web.Services.WebService
     {
 
@@ -24,10 +25,27 @@ namespace testJK2
         }
 
         [WebMethod]//测试求和
-        public int add(int x, int y)
+        public string add(int x, int y)
         {
             //test
-            return x+y;
+            int result = x + y;
+            return getJsonResult(result + "");
+        }
+
+        [WebMethod]//测试求和
+        public string getTestData()
+        {
+            LoginService loginServie = new LoginService();
+            return getJsonResult(loginServie.getTestData());
+        }
+
+        private string getJsonResult(string result)
+        {
+            Context.Response.Charset = "GB2312"; //设置字符集类型  
+            Context.Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312");
+            Context.Response.Write(result);
+            Context.Response.End();
+            return result;
         }
     }
 }

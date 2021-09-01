@@ -8,7 +8,7 @@ namespace testJK2.helper
 {
     public class SqlServerHelper
     {
-        public SqlConnection getSqlServerConnection() {
+        public static SqlConnection getSqlServerConnection() {
             //http://192.168.12.53:9012/TestWebService.asmx/add?x=10&y=12
             string dbIP = "192.168.12.53";
             string dbName = "cmis20190904230604";
@@ -21,7 +21,7 @@ namespace testJK2.helper
             return conn;        
         }
 
-        public void closeSqlServerConnection(SqlConnection conn)
+        public static void closeSqlServerConnection(SqlConnection conn)
         {
             if(conn!=null)
                 conn.Close();

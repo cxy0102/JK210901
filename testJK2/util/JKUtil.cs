@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Web;
 
-namespace testJK2.dao
+namespace testJK2.util
 {
-    public class BaseDao
+    public class JKUtil
     {
+
     }
 }

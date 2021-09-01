@@ -110,24 +110,25 @@
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="TestWebService.asmx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dao\BaseDao.cs" />
-    <Compile Include="dao\impl\BaseDaoImpl.cs" />
-    <Compile Include="dao\impl\Test.cs" />
+    <Compile Include="dao\impl\LoginDaoImpl.cs" />
+    <Compile Include="dao\LoginDao.cs" />
     <Compile Include="helper\SqlServerHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="service\LoginService.cs" />
     <Compile Include="TestWebService.asmx.cs">
       <DependentUpon>TestWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="util\JKUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="control\" />
     <Folder Include="model\" />
-    <Folder Include="service\" />
-    <Folder Include="util\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
