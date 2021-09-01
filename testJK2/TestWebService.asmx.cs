@@ -32,6 +32,16 @@ namespace testJK2
             return getJsonResult(result + "");
         }
 
+
+
+        [WebMethod]//验证登录
+        public string getLogin(string userID,string psw)
+        {
+            LoginService loginServie = new LoginService();
+            return getJsonResult(loginServie.getLogin(userID, psw)+"");
+        }
+
+
         [WebMethod]//测试求和
         public string getTestData()
         {
