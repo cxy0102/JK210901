@@ -13,18 +13,24 @@ namespace testJK2.dao.impl
         public  bool getLogin(string userID, string psw)
         {
             SqlConnection scnn = SqlServerHelper.getSqlServerConnection();
-
-            string sql = "SELECT * FROM [User] where ";
             string result = "";
-            using (SqlCommand cmd = new SqlCommand(sql, scnn))
-            {
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    result = ToJsonArrayString(reader);
-                    SqlServerHelper.closeSqlServerConnection(scnn);
-                }
+            //using (SqlCommand cmd = new SqlCommand(sql, scnn))
+            //{
+            //    using (SqlDataReader reader = cmd.ExecuteReader())
+            //    {
+            //        result = ToJsonArrayString(reader);
+            //        SqlServerHelper.closeSqlServerConnection(scnn);
+            //    }
+            //}
+            string sqls = @"SELECT * FROM [User] where  UserName=@UserName and PSW=@Password";
+
+            SqlCommand cmd = new SqlCommand(sqls, scnn);
+            cmd.Parameters.Add(new SqlParameter("@UserName", userID));
+            cmd.Parameters.Add(new SqlParameter("@Password", psw));
+            int i = Convert.ToInt32(cmd.ExecuteScalar());
+            if (i > 0) {
+                return true;
             }
-            
             return false;
         }
         /// <summary>   
