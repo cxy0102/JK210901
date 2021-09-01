@@ -26,6 +26,7 @@ namespace testJK2
         [WebMethod]//测试求和
         public int add(int x, int y)
         {
+            //test
             return x+y;
         }
     }
