@@ -12,6 +12,19 @@ namespace testJK2.dao.impl
     {
         public  bool getLogin(string userID, string psw)
         {
+            SqlConnection scnn = SqlServerHelper.getSqlServerConnection();
+
+            string sql = "SELECT * FROM [User] where ";
+            string result = "";
+            using (SqlCommand cmd = new SqlCommand(sql, scnn))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    result = ToJsonArrayString(reader);
+                    SqlServerHelper.closeSqlServerConnection(scnn);
+                }
+            }
+            
             return false;
         }
         /// <summary>   
