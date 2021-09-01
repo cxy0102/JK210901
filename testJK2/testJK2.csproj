@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="dao\BaseDao.cs" />
     <Compile Include="dao\impl\BaseDaoImpl.cs" />
+    <Compile Include="dao\impl\Test.cs" />
     <Compile Include="helper\SqlServerHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestWebService.asmx.cs">
