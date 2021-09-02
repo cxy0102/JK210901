@@ -49,6 +49,14 @@ namespace testJK2
             return getJsonResult(loginServie.getTestData());
         }
 
+        [WebMethod]//获取数据库
+        public string getBaseDatabase()
+        {
+            CadreInfoService loginServie = new CadreInfoService();
+            return getJsonResult(loginServie.getDataBase());
+        }
+
+
         private string getJsonResult(string result)
         {
             Context.Response.Charset = "GB2312"; //设置字符集类型  
