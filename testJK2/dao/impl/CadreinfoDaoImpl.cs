@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using testJK2.helper;
 
 namespace testJK2.dao.impl
 {
@@ -9,7 +11,9 @@ namespace testJK2.dao.impl
     {
         public string getDataBase()
         {
-            throw new NotImplementedException();
+            string sql = "select * from CMIS_UNIT_LIBRARY order by InpFrq";
+
+            return DbHelper.getSqlDataReaderData(sql);
         }
     }
 }
