@@ -46,6 +46,7 @@ namespace testJK2.helper
                     string strValue = dataReader[i].ToString();
                     jsonString.Append("\"" + strKey + "\":");
                     strValue = String.Format(strValue, type);
+
                     //datetime和int类型不能出现为空的情况,所以将其转换成字符串来进行处理。
                     //需要加""的
                     if (type == typeof(string) || type == typeof(DateTime) || type == typeof(int))
@@ -73,7 +74,10 @@ namespace testJK2.helper
                         }
                     }
                 }
-
+                string s = jsonString.ToString();
+                if (s.EndsWith(",")) {
+                    jsonString.Remove(jsonString.Length - 1, 1);
+                }
                 jsonString.Append("},");
             }
             dataReader.Close();
