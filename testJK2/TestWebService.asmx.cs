@@ -52,8 +52,8 @@ namespace testJK2
         [WebMethod]//获取数据库
         public string getBaseDatabase()
         {
-            LoginService loginServie = new LoginService();
-            return getJsonResult(loginServie.getTestData());
+            CadreInfoService cadreInfoService = new CadreInfoService();
+            return getJsonResult(cadreInfoService.getDataBase());
         }
 
 
